@@ -41,7 +41,7 @@ const SignUp = () => {
 
     const saveUser = (name, email,uid) =>{
         const user ={name, email,uid};
-        fetch('http://localhost:5000/users', {
+        fetch('https://doctor-portal-server-rho.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
