@@ -8,6 +8,11 @@ import Appointment from "../../Appointment/Appointment/Appointment";
 import MyAppointment from "../../Dashboard/MyAppointment/MyAppointment";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DashboardLayout from "../../../Layout/DashboardLayout";
+import Payment from "../../Dashboard/Payment/Payment";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import AllUsers from "../../Dashboard/AllUsers/AllUsers";
+import AddDoctor from "../../Dashboard/AddDoctor/AddDoctor";
+import ManageDoctors from "../../Dashboard/ManageDoctors/ManageDoctors";
 
 const router = createBrowserRouter([
     {
@@ -41,6 +46,24 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <MyAppointment></MyAppointment>
+            },
+            {
+                path: '/dashboard/allusers',
+                element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
+            },
+            {
+                path: '/dashboard/adddoctor',
+                element: <AdminRoute><AddDoctor></AddDoctor></AdminRoute>
+            },
+            {
+                path: '/dashboard/managedoctors',
+                element: <AdminRoute><ManageDoctors></ManageDoctors></AdminRoute>
+            },
+            
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({params}) => fetch(`https://doctor-portal-server-rho.vercel.app/bookings/${params.id}`)
             },
         ]
     }
