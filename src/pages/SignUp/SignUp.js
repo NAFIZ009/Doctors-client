@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
+// import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useToken from '../../hooks/useToken';
 // import useToken from '../../hooks/useToken';
@@ -25,7 +26,11 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                toast('User Created Successfully.')
+                // toast('User Created Successfully.')
+                toast.info('User Created Successfully.',{
+                    position: toast.POSITION.TOP_CENTER
+                  });
+                  
                 const userInfo = {
                     displayName: data.name
                 }
@@ -94,6 +99,7 @@ const SignUp = () => {
                 <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
 
             </div>
+            
         </div>
     );
 };

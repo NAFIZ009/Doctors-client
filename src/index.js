@@ -5,7 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from './contexts/AuthProvider';
 import { QueryClientProvider,QueryClient } from '@tanstack/react-query';
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 const queryClient = new QueryClient()
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,6 +15,7 @@ root.render(
   <QueryClientProvider client={queryClient}>
   <AuthProvider>
   <App />
+  <ToastContainer />
   </AuthProvider>
   
   </QueryClientProvider>

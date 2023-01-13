@@ -10,19 +10,19 @@ const Services = () => {
         {
             id: 1,
             name: 'Fluoride Treatment',
-            description: 'Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the',
+            description: 'Fluoride treatments are typically professional treatments containing a high concentration of fluoride that a dentist or hygienist will apply to a persons teeth to improve health and reduce the risk of cavities.',
             img: fluoride
         },
         {
             id: 2,
             name: 'Cavity Filling',
-            description: 'Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the',
+            description: 'Teeth can be filled with gold, silver amalgam (mercury mixed with silver, tin, zinc and copper), porcelain, glass ionomer, or tooth-colored plastic materials called resin composite fillings',
             img: cavity
         },
         {
             id: 3,
             name: 'Teeth Whitening',
-            description: 'Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the',
+            description: 'dentist can whiten teeth as long as theyre registered with the General Dental Council. Registered dental therapists and dental hygienists can also carry out teeth whitening on the prescription of a dentist.',
             img: whitening
         },
     ]
