@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import React, { useContext } from 'react';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
@@ -43,17 +43,11 @@ const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
                 if (data.acknowledged) {
                     console.log(data);
                     setTreatment(null);
-                    // toast.success('Booking confirmed');
-                    toast.success('Booking confirmed',{
-                        position: toast.POSITION.TOP_CENTER
-                      })
+                    toast.success('Booking confirmed');
                     refetch();
                 }
                 else{
-                    // toast.error('Booking error');
-                    toast.success('Booking error',{
-                        position: toast.POSITION.TOP_CENTER
-                      })
+                    toast.error('Booking error');
                 }
             })
 

@@ -1,11 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-// import toast from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useToken from '../../hooks/useToken';
-// import useToken from '../../hooks/useToken';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -26,11 +24,7 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                // toast('User Created Successfully.')
-                toast.info('User Created Successfully.',{
-                    position: toast.POSITION.TOP_CENTER
-                  });
-                  
+                  toast.success("User Created Successfully");
                 const userInfo = {
                     displayName: data.name
                 }
@@ -41,7 +35,8 @@ const SignUp = () => {
                     .catch(err => console.log(err));
             })
             .catch(error => {
-                console.log(error)
+                toast.error("Can't Created User");
+                console.log(error);
                 setSignUPError(error.message)
             });
     }
