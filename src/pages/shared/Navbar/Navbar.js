@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import useAdmin from '../../../hooks/useAdmin';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-
+    const [isAdmin]=useAdmin(user?.email);
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -16,7 +17,36 @@ const Navbar = () => {
         <li><Link to="/appointment">Appointment</Link></li>
         {user?.uid ?
             <>
-                <li><Link to="/dashboard">Dashboard</Link></li>
+                <li className='lg:inline hidden'>
+                <div className="dropdown dropdown-hover">
+                <label tabIndex={0} className=""><Link to="/dashboard">Dashboard</Link></label>
+                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 top-[100%] left-[0]">
+                <li><Link to="/dashboard">My Appointments</Link></li>
+                {
+                    isAdmin && <>
+                        <li><Link to="/dashboard/allusers">All users</Link></li>
+                        <li><Link to="/dashboard/adddoctor">Add A Doctor</Link></li>
+                        <li><Link to="/dashboard/managedoctors">Manage Doctors</Link></li>
+                    </>
+                }
+                </ul>
+              </div>
+              </li>
+              <li className='lg:hidden inline'>
+              <Link to="/dashboard">Dashboard</Link>
+              <div>
+                <ul>
+                <li><Link to="/dashboard">My Appointments</Link></li>
+                {
+                    isAdmin && <>
+                        <li><Link to="/dashboard/allusers">All users</Link></li>
+                        <li><Link to="/dashboard/adddoctor">Add A Doctor</Link></li>
+                        <li><Link to="/dashboard/managedoctors">Manage Doctors</Link></li>
+                    </>
+                }
+                </ul>
+              </div>
+              </li>
                 <li><button onClick={handleLogOut}>Sign out</button></li>
             </>
             : <li><Link to="/login">Login</Link></li>}
