@@ -3,7 +3,7 @@ App Feather -
 _ SignUp and SignIn With Firebase Authentication
 _ Appointments Options With Dates
 _ Payment Options With Stripe
-_ Own Server ( https://github.com/NAFIZ009/quiz-station-server )
+_ Own Server  (https://github.com/NAFIZ009/Doctors-server) 
 _ Admin Panel -
 _ Add Doctor
 _ Manage User
